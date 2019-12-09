@@ -1,0 +1,50 @@
+[
+    {
+        "tagNumber": 1,
+        "tagText": "CSP"
+    },
+    {
+        "tagNumber": 2,
+        "tagText": "Cookies"
+    },
+    {
+        "tagNumber": 3,
+        "tagText": "X-Frame-Options"
+    },
+    {
+        "tagNumber": 4,
+        "tagText": "HSTS"
+    },
+    {
+        "tagNumber": 5,
+        "tagText": "Caching"
+    },
+    {
+        "tagNumber": 6,
+        "tagText": "Cookie-httpOnly"
+    },
+    {
+        "tagNumber": 7,
+        "tagText": "Contradicting-Headers"
+    },
+    {
+        "tagNumber": 8,
+        "tagText": "HSTS-includeSubdomains"
+    },
+    {
+        "tagNumber": 9,
+        "tagText": "SVG"
+    },
+    {
+        "tagNumber": 10,
+        "tagText": "Cookie-secure"
+    },
+    {
+        "tagNumber": 11,
+        "tagText": "CSP-frame-src"
+    },
+    {
+        "tagNumber": 12,
+        "tagText": "CSP-child-src"
+    }
+]

@@ -1,0 +1,376 @@
+---
+swagger: '2.0'
+info:
+  description: 'The API for the CanITrust.in frontend. Find out more at canitrust.in'
+  version: '1.0.0'
+  title: 'Swagger canitrust'
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    email: 'secteamvn@mgm-tp.com'
+basePath: '/api/v1'
+tags:
+  - name: 'testcase'
+    description: 'Everything about testcase'
+    externalDocs:
+      description: 'Find out more at'
+      url: 'http://canitrust.in'
+schemes:
+  - 'http'
+  - 'https'
+paths:
+  /testcase:
+    get:
+      tags:
+        - 'testcase'
+      summary: 'get all testcases'
+      description: ''
+      operationId: 'getAllTestcase'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: query
+          name: page
+          required: false
+          default: 1
+          type: integer
+          description: Page number
+      responses:
+        200:
+          description: 'successful'
+          schema:
+            $ref: '#/definitions/Testcases'
+        405:
+          description: 'Invalid input'
+      x-swagger-router-controller: 'Testcase'
+  /testcase/{testcaseId}:
+    get:
+      tags:
+        - 'testcase'
+      summary: 'Find Testcase by ID'
+      description: 'Returns a single Testcase'
+      operationId: 'getTestcaseById'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'testcaseId'
+          in: 'path'
+          description: 'ID of Testcase to return'
+          required: true
+          type: 'integer'
+          format: 'int64'
+      responses:
+        200:
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/TestcaseDetail'
+        400:
+          description: 'Invalid ID supplied'
+        404:
+          description: 'Testcase not found'
+      x-swagger-router-controller: 'Testcase'
+  /testcase/path/{path}:
+    get:
+      tags:
+        - 'testcase'
+      summary: 'Find Testcase by path'
+      description: 'Returns a single Testcase'
+      operationId: 'getTestcaseByPath'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'path'
+          in: 'path'
+          description: 'path of Testcase to return'
+          required: true
+          type: 'string'
+      responses:
+        200:
+          description: 'successful operation'
+          schema:
+            $ref: '#/definitions/TestcaseDetail'
+        400:
+          description: 'Invalid path supplied'
+        404:
+          description: 'Testcase not found'
+      x-swagger-router-controller: 'Testcase'
+  /testcase/search:
+    post:
+      tags:
+        - 'testcase'
+      summary: 'Search a Testcase in the database'
+      description: ''
+      operationId: 'searchTestcase'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - in: 'body'
+          name: 'body'
+          required: true
+          schema:
+            properties:
+              name:
+                type: 'string'
+      responses:
+        200:
+          description: 'OK'
+          schema:
+            $ref: '#/definitions/SearchResult'
+        404:
+          description: 'Not found'
+        405:
+          description: 'Invalid input'
+      x-swagger-router-controller: 'Testcase'
+  /tag:
+    get:
+      tags:
+        - 'tag'
+      summary: 'get all tags'
+      description: ''
+      operationId: 'getAllTag'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters: []
+      responses:
+        200:
+          description: 'successful'
+          schema:
+            $ref: '#/definitions/Tags'
+        404:
+          description: 'Tag not found'
+      x-swagger-router-controller: 'Tag'
+  /tag/{tagName}:
+    get:
+      tags:
+        - 'tag'
+      summary: 'Search for testcases by a tag name | Paginated: add ?page={page} to specify a page'
+      description: ''
+      operationId: 'getTestcasesByTagName'
+      consumes:
+        - 'application/json'
+      produces:
+        - 'application/json'
+      parameters:
+        - name: 'tagName'
+          in: 'path'
+          description: 'Name of the Tag'
+          required: true
+          type: 'string'
+        - name: 'page'
+          in: 'query'
+          description: 'Page number'
+          required: false
+          type: 'integer'
+      responses:
+        200:
+          description: 'A paginated list of testcases for the given tag name'
+          schema:
+            type: object
+            properties:
+              currentPage:
+                type: 'integer'
+                description: 'current page'
+                example: 1
+              itemsPerPage:
+                type: 'integer'
+                description: 'Items per page'
+                example: 5
+              offset:
+                type: 'integer'
+                description: 'Offset of the 1st item returned'
+              totalItems:
+                type: 'integer'
+                description: 'Total number of testcases found'
+                example: 20
+              items:
+                type: 'array'
+                description: 'List of testcase'
+                items:
+                  $ref: '#/definitions/Testcase'
+        405:
+          description: 'Invalid input'
+      x-swagger-router-controller: 'Tag'
+definitions:
+  Testcase:
+    type: 'object'
+    properties:
+      _id:
+        type: 'string'
+        description: 'default _id was generated from mongoDB'
+      testNumber:
+        type: 'integer'
+      title:
+        type: 'string'
+      description:
+        type: 'string'
+      description_detail:
+        type: 'string'
+      path:
+        type: 'string'
+      date_created:
+        type: 'string'
+        format: 'date-time'
+      tagNums:
+        type: 'array'
+        items:
+          type: 'integer'
+      tags:
+        type: 'array'
+        items:
+          $ref: '#/definitions/Tag'
+      question:
+        type: 'string'
+      possibleAnswers:
+        type: 'array'
+        items:
+          $ref: '#/definitions/PossibleAnswer'
+    example:
+      possibleAnswers:
+        - ans_id: 1
+          ans_desc: 'ajdadahja'
+          _id: '_id'
+        - ans_id: 2
+          ans_desc: 'fadfadfaa'
+          _id: '_id'
+      description: 'description'
+      _id: '_id'
+      title: 'title'
+      date_created: '2000-01-23T04:56:07.000+00:00'
+      testNumber: 16
+      tagNums: [1, 2]
+      tags:
+        - $ref: '#/definitions/Tag/example'
+      question: 'question'
+    xml:
+      name: 'Testcase'
+
+  TestcaseDetail:
+    type: 'object'
+    allOf:
+      - $ref: '#/definitions/Testcase'
+      - type: object
+        properties:
+          testResults:
+            type: 'array'
+            items:
+              $ref: '#/definitions/TestResult'
+    example:
+      possibleAnswers:
+        - ans_id: 1
+          ans_desc: 'abcde'
+          _id: '_id'
+        - ans_id: 2
+          ans_desc: 'abcde'
+          _id: '_id'
+      description: 'description'
+      _id: '_id'
+      title: 'title'
+      date_created: '2000-01-23T04:56:07.000+00:00'
+      testNumber: 16
+      tags: [1, 2]
+      question: 'question'
+      testResults:
+        - testNumber: 16
+          result: 1
+          browser: 'Chrome'
+          browserVer: 69
+          date_lasttest: '2010-01-23T04:56:07.000+00:00'
+          _id: '_id'
+        - testNumber: 16
+          result: 1
+          browser: 'Firefox'
+          browserVer: 33
+          date_lasttest: '2010-01-23T04:56:07.000+00:00'
+          _id: '_id'
+    xml:
+      name: 'TestcaseDetail'
+
+  PossibleAnswer:
+    type: 'object'
+    properties:
+      _id:
+        type: 'string'
+        description: 'default _id was generated from mongoDB'
+      ans_id:
+        type: 'integer'
+        default: 1
+      ans_desc:
+        type: 'string'
+    example:
+      _id: '_id'
+      ans_id: 2
+      ans_desc: 'adagaatea'
+    xml:
+      name: 'PossibleAnswer'
+  TestResult:
+    type: 'object'
+    properties:
+      _id:
+        type: 'string'
+        description: 'default _id was generated from mongoDB'
+      testNumber:
+        type: 'integer'
+      browser:
+        type: 'string'
+      browserVer:
+        type: 'number'
+      result:
+        type: 'integer'
+        default: 1
+      date_lasttest:
+        type: 'string'
+        format: 'date-time'
+    example:
+      testNumber: 16
+      result: 1
+      browser: 'Chrome'
+      browserVer: 69
+      date_lasttest: '2010-01-23T04:56:07.000+00:00'
+      _id: '_id'
+    xml:
+      name: 'TestResult'
+  Tag:
+    type: 'object'
+    properties:
+      _id:
+        type: 'string'
+        description: 'default_id was generated from mongoDB'
+      tagNumber:
+        type: 'integer'
+      tagText:
+        type: 'string'
+    example:
+      _id: '_id'
+      tagNumber: 1
+      tagText: 'CSP'
+  SearchResult:
+    type: 'object'
+    properties:
+      searchresult:
+        type: 'array'
+        items: [$ref: '#/definitions/Testcase', $ref: '#/definitions/Tag']
+  Testcases:
+    type: 'object'
+    properties:
+      testcases:
+        type: 'array'
+        items:
+          [
+            $ref: '#/definitions/TestResult',
+            $ref: '#/definitions/Testcase',
+            $ref: '#/definitions/Tag',
+          ]
+  Tags:
+    type: 'object'
+    properties:
+      tags:
+        type: 'array'
+        items: [$ref: '#/definitions/Tag']
+externalDocs:
+  description: 'Find out more about canitrust.in'
+  url: 'http://canitrust.in'

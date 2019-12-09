@@ -1,0 +1,32 @@
+version: '2.1'
+services:
+  mongo:
+    image: mongo:4.0
+    container_name: mongo_db
+    volumes:
+      - ./docker/mongodb/init-db.sh:/docker-entrypoint-initdb.d/01-init-db.sh
+      - ./docker/mongodb/add-data.sh:/docker-entrypoint-initdb.d/02-init-db.sh
+      - ./docker/mongodb/testdata/:/testdata/
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_ROOT_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGODB_DB}
+      MONGO_USERNAME: ${MONGODB_USER}
+      MONGO_PASSWORD: ${MONGODB_PASSWORD}
+    ports:
+      - '27017:27017'
+  app:
+    build:
+      context: .
+    environment:
+      ENV: local
+      MONGODB_USER: ${MONGODB_USER}
+      MONGODB_PASSWORD: ${MONGODB_PASSWORD}
+    volumes:
+      #- .:/usr/app/
+      - ./wait-for-it.sh:/wait-for-it.sh
+    ports:
+      - '9191:9191'
+    depends_on:
+      - mongo
+    command: ['/wait-for-it.sh', 'mongo_db:27017', '--', 'npm', 'start']

@@ -1,0 +1,13 @@
+.git*
+.idea
+*.md
+!README*.md
+.eslintrc.js
+prettier.config.js
+.DS_Store
+build/*
+target/*
+node_modules/
+.bundler/*
+.dockerignore
+Jenkins/

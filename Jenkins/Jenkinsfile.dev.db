@@ -1,0 +1,39 @@
+node('Develop') {
+  def MONGODB_DB = 'cit-dev'
+  dir('frontend-api') {
+    stage('Clone frontend api repository') {
+      def repo = 'frontend-api '
+      def gitBranch = 'develop'
+      def gitUrl = env.CIT_GIT_FRONTEND_API_URL
+      def gitCredentialID = 'e7acb748-22b5-47e2-b5c8-f740048baac1'
+      try {
+        deleteDir()
+      } catch (err) {
+        echo "Caught: ${err}"
+      }
+      git branch: gitBranch, credentialsId: gitCredentialID, url: gitUrl
+      echo "Checking out $repo form $gitUrl, branch $gitBranch"
+    }
+
+    stage('Flush the old data') {
+      sh returnStdout: true, script: "mongo ${MONGODB_DB} --eval 'db.testresults.remove({})'"
+      sh returnStdout: true, script: "mongo ${MONGODB_DB} --eval 'db.testcases.remove({})'"
+      sh returnStdout: true, script: "mongo ${MONGODB_DB} --eval 'db.tags.remove({})'"
+    }
+
+    dir('docker/mongodb/') {
+      stage('Init data') {
+        sh returnStdout: true, script: "chmod +x add-data.sh"
+        sh returnStdout: true, script: "MONGO_INITDB_DATABASE=${MONGODB_DB} ./add-data.sh "
+        echo "Init data successfully"
+      }
+    }
+
+  }
+
+  try {
+    cleanWs()
+  } catch (err) {
+    echo "Caught: ${err}"
+  }
+}
