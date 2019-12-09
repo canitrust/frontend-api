@@ -17,9 +17,9 @@ node ('Build'){
         def build_env = "${params.BUILD_ENV}"
         def gitBranch = "release/${params.TAG}"
         def gitUrl = env.CIT_GIT_FRONTEND_API_URL
-        def gitCredentialID = 'e7acb748-22b5-47e2-b5c8-f740048baac1'
-        git branch: gitBranch, credentialsId: gitCredentialID, url: gitUrl
+        git branch: gitBranch, url: gitUrl
         echo "Checking out $repo form $gitUrl, branch $gitBranch"
+        echo "Deploying to ${build_env} system"
     }
     stage ('Clean docker images'){
       sh "docker images --format '{{.Repository}}:{{.Tag}}' | grep '$imageName' | xargs --no-run-if-empty docker rmi --force"
