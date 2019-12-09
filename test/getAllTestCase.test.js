@@ -12,7 +12,7 @@ const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const { expect } = chai;
 
-const server = 'http://localhost:9191';
+const server = 'http://frontend-api:9191';
 
 describe('Test cases framework', () => {
   it('should list ALL test cases on /testcase GET', (done) => {
