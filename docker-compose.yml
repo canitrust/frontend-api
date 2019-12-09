@@ -18,6 +18,7 @@ services:
   app:
     build:
       context: .
+    container_name: frontend-api
     environment:
       ENV: local
       MONGODB_USER: ${MONGODB_USER}

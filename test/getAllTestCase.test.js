@@ -12,7 +12,6 @@ const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const { expect } = chai;
 
-// let server = require('../index.js');
 const server = 'http://localhost:9191';
 
 describe('Test cases framework', () => {
