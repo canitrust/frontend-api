@@ -1,0 +1,29 @@
+name: PR Checks
+# This workflow is triggered on pull requests to the repository.
+on:
+  pull_request:
+    branches:
+      - master
+      - develop
+
+jobs:
+  basic:
+    name: Linting, dependeny checks and unit tests
+    runs-on: ubuntu-18.04
+    steps:
+      - name: checkout
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "10"
+      - run: npm install
+      - name: linter
+        run: npm run lint
+      - name: dependency-check
+        run: npm audit
+      - name: start-docker
+        run: docker-compose up -d --build
+      - name: tests
+        run: npm test
