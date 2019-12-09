@@ -19,6 +19,7 @@ jobs:
         with:
           node-version: "10"
       - run: npm install
+      - run: npm install -g mocha
       - name: linter
         run: npm run lint
       - name: dependency-check
