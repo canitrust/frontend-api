@@ -17,7 +17,7 @@ const server = 'http://frontend-api:9191';
 let testcases = null;
 
 describe('Check all APIs', () => {
-  it('should list 5 test cases on /testcase GET', (done) => {
+  it('should list a number of test cases on /testcase GET', (done) => {
     chai
       .request(server)
       .get('/api/v1/testcase')
@@ -26,7 +26,7 @@ describe('Check all APIs', () => {
         expect(res).to.be.json;
         expect(res.text.length).to.be.above(0);
         expect(res.body.testcases.items).to.be.a('array');
-        expect(res.body.testcases.items.length).to.be.equal(5);
+        expect(res.body.testcases.items.length).to.be.above(0);
         testcases = res.body.testcases.items;
         done();
       });
