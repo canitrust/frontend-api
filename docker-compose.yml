@@ -30,4 +30,4 @@ services:
       - '9191:9191'
     depends_on:
       - mongo
-    command: ['/wait-for-it.sh', 'mongo_db:27017', '--', 'npm', 'start']
+    command: ['/wait-for-it.sh', '-t', '30', 'mongo_db:27017', '--', 'npm', 'start']
