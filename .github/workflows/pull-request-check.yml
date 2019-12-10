@@ -26,4 +26,4 @@ jobs:
       - name: start-docker
         run: docker-compose up -d --build
       - name: tests
-        run: ./wait-for-it.sh -t 180 localhost:9191 -- docker exec frontend-api npm test
+        run: docker exec frontend-api ./wait-for-it.sh frontend-api:9191 -t 30 -- npm test
