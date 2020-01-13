@@ -1,7 +1,7 @@
 version: '2.1'
 services:
   mongo:
-    image: mongo:4.0
+    image: mongo:4.2
     container_name: mongo_db
     volumes:
       - ./docker/mongodb/init-db.sh:/docker-entrypoint-initdb.d/01-init-db.sh
