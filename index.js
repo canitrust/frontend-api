@@ -11,7 +11,6 @@ const path = require('path');
 const swaggerTools = require('swagger-tools');
 const jsyaml = require('js-yaml');
 const mongoose = require('mongoose');
-const robots = require('express-robots-txt');
 // Security headers
 const { apiResponseHeaders, swaggerUIHeaders } = require('./security-headers');
 
@@ -91,9 +90,6 @@ swaggerTools.initializeMiddleware(swaggerDoc, (middleware) => {
     console.log('Swagger-ui is available on http://localhost:%d/docs', PORT);
   }
 });
-
-// Robots
-app.use(robots(`${__dirname}/robots.txt`));
 
 // export app
 module.exports = app;

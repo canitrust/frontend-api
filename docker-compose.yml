@@ -15,7 +15,6 @@ services:
       MONGO_PASSWORD: ${MONGODB_PASSWORD}
     ports:
       - '27017:27017'
-    # command: /bin/bash -c "echo 123; env"
   app:
     build:
       context: .

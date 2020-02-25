@@ -13,21 +13,30 @@ module.exports.sitemapIndex = async (req, res) => {
     const PathDefault = 'http://canitrust.in/';
     const TagDefault = 'http://canitrust.in/tag/';
     const obj = {
-      sitemapindex: {
+      urlset: {
         '@xmlns': 'http://www.sitemaps.org/schemas/sitemap/0.9',
-        sitemap: [],
+        url: [],
       },
     };
     const PathData = {
       testcases: await TestcaseService.getAllPageTestcase(),
     };
+    const homepageElement = {
+      loc: PathDefault,
+      lastmod: formatDate(
+        PathData.testcases[PathData.testcases.length - 1].date_created
+      ),
+      changefreq: 'Weekly',
+    };
+    obj.urlset.url.push(homepageElement);
     for (const item of PathData.testcases) {
       // pathList.push(item.path,item.date_created);
       const elementPath = {
         loc: PathDefault.concat(item.path),
-        lastmod: item.date_created.toString(),
+        lastmod: formatDate(item.date_created),
+        changefreq: 'Monthly',
       };
-      obj.sitemapindex.sitemap.push(elementPath);
+      obj.urlset.url.push(elementPath);
     }
     const TagData = {
       tags: await TagService.getAllTag(),
@@ -35,10 +44,10 @@ module.exports.sitemapIndex = async (req, res) => {
     for (const item of TagData.tags) {
       const elementTag = {
         loc: TagDefault.concat(item.tagText),
-        lastmod:
-          'Mon July 17 2019 00:00:00 GMT+0000 (Coordinated Universal Time)',
+        lastmod: formatDate('Mon July 1,2019'),
+        changefreq: 'Monthly',
       };
-      obj.sitemapindex.sitemap.push(elementTag);
+      obj.urlset.url.push(elementTag);
     }
     const feed = xmlbuilder.create(obj, { encoding: 'UTF-8' });
     const tmp = `${feed.end({ pretty: true })}\n`;
@@ -50,3 +59,15 @@ module.exports.sitemapIndex = async (req, res) => {
     return res.status(400).json(null);
   }
 };
+
+function formatDate(date) {
+  const d = new Date(date);
+  let month = `${d.getMonth() + 1}`;
+  let day = `${d.getDate()}`;
+  const year = d.getFullYear();
+
+  if (month.length < 2) month = `0${month}`;
+  if (day.length < 2) day = `0${day}`;
+
+  return [year, month, day].join('-');
+}
