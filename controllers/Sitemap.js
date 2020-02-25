@@ -10,8 +10,8 @@ const TestcaseService = require('../service/TestcaseService');
 
 module.exports.sitemapIndex = async (req, res) => {
   try {
-    const PathDefault = 'http://canitrust.in/';
-    const TagDefault = 'http://canitrust.in/tag/';
+    const PathDefault = 'https://canitrust.in/';
+    const TagDefault = 'https://canitrust.in/tag/';
     const obj = {
       urlset: {
         '@xmlns': 'http://www.sitemaps.org/schemas/sitemap/0.9',
