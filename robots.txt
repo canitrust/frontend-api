@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://canitrust.in/sitemap.xml
