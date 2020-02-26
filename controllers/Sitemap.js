@@ -61,7 +61,7 @@ module.exports.sitemapIndex = async (req, res) => {
       obj.urlset.url.push(elementTag);
     }
     const feed = xmlbuilder.create(obj, { encoding: 'UTF-8' });
-    const tmp = `${feed.end({ pretty: true })}\n`;
+    const tmp = feed.end({ pretty: true });
     res.setHeader('Content-Type', 'application/xml');
     res.removeHeader('Content-Security-Policy');
     return res.status(200).send(tmp);
