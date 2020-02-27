@@ -19,6 +19,7 @@ module.exports.sitemapIndex = async (req, res) => {
         url: [],
       },
     };
+    const tagModified = [];
     const PathData = await TestcaseService.getAllPageTestcase();
     let date = new Date('January 1, 2018');
     // Add testcase path in sitemap
@@ -28,6 +29,13 @@ module.exports.sitemapIndex = async (req, res) => {
         lastmod: item.date_created.toISOString().substring(0, 10),
         changefreq: 'Monthly',
       };
+      for (let i = 0; i < item.tagNums.length; i++) {
+        // Check element if null then initialize
+        if (!tagModified[item.tagNums[i]])
+          tagModified[item.tagNums[i]] = new Date('January 1, 2018');
+        if (tagModified[item.tagNums[i]] < item.date_created)
+          tagModified[item.tagNums[i]] = item.date_created;
+      }
       if (date <= item.date_created) date = item.date_created;
       obj.urlset.url.push(elementPath);
     }
@@ -41,23 +49,15 @@ module.exports.sitemapIndex = async (req, res) => {
     // Add Tag path in sitemap
     const TagData = await TagService.getAllTag();
     for (const item of TagData) {
-      const arr = [];
-      // Check all testcases have same tag
-      for (let i = 0; i < PathData.length - 1; i++) {
-        const found = PathData[i].tagNums.find(function(element) {
-          return element === item.tagNumber;
-        });
-        if (found) arr.push(PathData[i].date_created);
-      }
-      let lastest = new Date('January 1, 2018');
-      for (let i = 0; i < arr.length; i++) {
-        if (lastest <= arr[i]) lastest = arr[i];
-      }
+      // Check this tag has any testcase yet in case some tag don't have any testcase
+      if (!tagModified[item.tagNumber])
+        tagModified[item.tagNumber] = new Date('January 1, 2018');
       const elementTag = {
         loc: TagDefault.concat(item.tagText),
-        lastmod: lastest.toISOString().substring(0, 10),
+        lastmod: tagModified[item.tagNumber].toISOString().substring(0, 10),
         changefreq: 'Monthly',
       };
+      console.log(tagModified[item.tagNumber]);
       obj.urlset.url.push(elementTag);
     }
     const feed = xmlbuilder.create(obj, { encoding: 'UTF-8' });
