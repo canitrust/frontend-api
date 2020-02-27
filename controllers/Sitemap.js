@@ -29,6 +29,7 @@ module.exports.sitemapIndex = async (req, res) => {
         lastmod: item.date_created.toISOString().substring(0, 10),
         changefreq: 'Monthly',
       };
+      // Check some testcase have than one tags
       for (let i = 0; i < item.tagNums.length; i++) {
         // Check element if null then initialize
         if (!tagModified[item.tagNums[i]])
