@@ -57,7 +57,6 @@ module.exports.sitemapIndex = async (req, res) => {
         lastmod: tagModified[item.tagNumber].toISOString().substring(0, 10),
         changefreq: 'Monthly',
       };
-      console.log(tagModified[item.tagNumber]);
       obj.urlset.url.push(elementTag);
     }
     const feed = xmlbuilder.create(obj, { encoding: 'UTF-8' });
