@@ -58,7 +58,6 @@ module.exports.sitemapIndex = async (req, res) => {
     const feed = xmlbuilder.create(sitemap, { encoding: 'UTF-8' });
     const tmp = feed.end({ pretty: true });
     res.setHeader('Content-Type', 'application/xml');
-    // res.removeHeader('Content-Security-Policy');
     res.setHeader(
       'Content-Security-Policy',
       "default-src 'none'; style-src 'unsafe-inline'"
