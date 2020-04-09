@@ -1,5 +1,3 @@
-/* eslint-disable func-names */
-/* eslint-disable no-restricted-syntax */
 /* ------------------------------------------------------------------------------------------------
  * Copyright (c) mgm security partners GmbH. All rights reserved.
  * Licensed under the AGPLv3 License. See LICENSE.md in the project root for license information.
@@ -23,7 +21,7 @@ module.exports.sitemapIndex = async (req, res) => {
     const testcaseData = await TestcaseService.getAllPageTestcase();
     let testcaseLastModifiedDate = new Date('2018-01-01');
     // Add testcase path in sitemap
-    for (const item of testcaseData) {
+    testcaseData.forEach((item) => {
       sitemap.urlset.url.push({
         loc: PathDefault.concat(item.path),
         lastmod: item.date_created.toISOString().substring(0, 10),
@@ -36,7 +34,7 @@ module.exports.sitemapIndex = async (req, res) => {
       });
       if (testcaseLastModifiedDate <= item.date_created)
         testcaseLastModifiedDate = item.date_created;
-    }
+    });
     // Add hompage path in sitemap
     sitemap.urlset.url.unshift({
       loc: PathDefault,
@@ -45,7 +43,7 @@ module.exports.sitemapIndex = async (req, res) => {
     });
     // Add Tag path in sitemap
     const TagData = await TagService.getAllTag();
-    for (const item of TagData) {
+    TagData.forEach((item) => {
       // Check this tag has any testcase yet in case some tag don't have any testcase
       if (!tagModified[item.tagNumber])
         tagModified[item.tagNumber] = new Date('2018-01-01');
@@ -54,7 +52,7 @@ module.exports.sitemapIndex = async (req, res) => {
         lastmod: tagModified[item.tagNumber].toISOString().substring(0, 10),
         changefreq: 'monthly',
       });
-    }
+    });
     const feed = xmlbuilder.create(sitemap, { encoding: 'UTF-8' });
     const tmp = feed.end({ pretty: true });
     res.setHeader('Content-Type', 'application/xml');
