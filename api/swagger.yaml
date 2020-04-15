@@ -195,32 +195,7 @@ paths:
         405:
           description: 'Invalid input'
       x-swagger-router-controller: 'Tag'
-  /sitemap.xml:
-    get:
-      tags:
-        - 'sitemap'
-      summary: 'Get sitemap index'
-      description: ''
-      operationId: 'sitemapIndex'
-      consumes:
-        - 'application/xml'
-      produces:
-        - 'application/xml'
-      parameters: []
-      responses:
-        200:
-          description: 'successful'
-          schema:
-            $ref: '#/definitions/sitemapIndex'
-        404:
-          description: 'Path not found'
-      x-swagger-router-controller: 'Sitemap'
 definitions:
-  sitemapIndex:
-    type: 'array'
-    items:
-      type: 'string'
-
   Testcase:
     type: 'object'
     properties:

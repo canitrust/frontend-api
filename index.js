@@ -13,6 +13,8 @@ const jsyaml = require('js-yaml');
 const mongoose = require('mongoose');
 // Security headers
 const { apiResponseHeaders, swaggerUIHeaders } = require('./security-headers');
+const sitemap = require('./controllers/Sitemap');
+// const wiki = require('./controllers/wiki');
 
 require('./config');
 
@@ -45,6 +47,8 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+app.use('/sitemap.xml', sitemap);
+// app.use('/wiki', wiki);
 // Swagger
 // swaggerRouter configuration
 const options = {

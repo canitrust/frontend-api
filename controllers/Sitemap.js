@@ -4,10 +4,13 @@
  * ------------------------------------------------------------------------------------------------*/
 
 const xmlbuilder = require('xmlbuilder');
+const express = require('express');
 const TagService = require('../service/TagService');
 const TestcaseService = require('../service/TestcaseService');
 
-module.exports.sitemapIndex = async (req, res) => {
+const router = express.Router();
+
+router.get('/', async function sitemapIndex(req, res) {
   const PathDefault = 'https://www.canitrust.in/';
   const TagDefault = 'https://www.canitrust.in/tag/';
   const sitemap = {
@@ -65,4 +68,6 @@ module.exports.sitemapIndex = async (req, res) => {
     console.log(error);
     return res.status(400).json(null);
   }
-};
+});
+
+module.exports = router;
