@@ -5,7 +5,8 @@ on:
     branches:
       - develop
       - master
-      - 'releases/**'
+    tags:
+      - v*
 jobs:
   build:
     name: Build image
@@ -21,11 +22,11 @@ jobs:
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag image
       - name: Log into registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login docker.pkg.github.com -u ${{ github.actor }} --password-stdin
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login $DOCKER_REGISTRY -u ${{ github.actor }} --password-stdin
         
       - name: Push image
         run: |
-          IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
+          IMAGE_ID=$DOCKER_REGISTRY/${{ github.repository }}/$IMAGE_NAME
           
           # Change all uppercase to lowercase
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
