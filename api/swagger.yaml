@@ -22,7 +22,7 @@ paths:
     get:
       tags:
         - 'testcase'
-      summary: 'get all testcases'
+      summary: 'Get all testcases'
       description: ''
       operationId: 'getAllTestcase'
       consumes:
