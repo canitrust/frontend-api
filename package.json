@@ -1,6 +1,6 @@
 {
   "name": "canitrust-frontend-api",
-  "version": "1.6.0",
+  "version": "1.6.3",
   "description": "The API for the CanITrust.in frontend. Find out more at canitrust.in",
   "license": "AGPL-3.0",
   "repository": "github:canitrust/frontend-api",
