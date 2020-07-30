@@ -49,6 +49,11 @@ const TestcaseService = {
     }
   },
 
+  getAllPageTestcase: async () => {
+    const data = await Testcase.find();
+    return data;
+  },
+
   searchTestcase: async (name) => {
     const findTags = await TagService.getTagByName(name);
     let data = [];
