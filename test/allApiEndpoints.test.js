@@ -46,6 +46,21 @@ describe('Check all APIs', () => {
       });
   });
 
+  it('should return all test results of the variant test case on /testcase/{testcaseId}/{variantTestcaseId} GET', (done) => {
+    chai
+      .request(server)
+      .get(`/api/v1/testcase/1/0`)
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res).to.be.json;
+        expect(res.text.length).to.be.above(0);
+        expect(res.body.testResults).to.be.a('array');
+        expect(res.body.testResults.length).to.be.above(0);
+        expect(res.body.testResults[0].variationId).to.equal(0);
+        done();
+      });
+  });
+
   it('should return a succeed response on /testcase/path/{path} GET', (done) => {
     chai
       .request(server)
