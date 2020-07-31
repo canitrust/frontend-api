@@ -22,6 +22,7 @@ describe('Check all APIs', () => {
       .request(server)
       .get('/api/v1/testcase')
       .end((err, res) => {
+        expect(err).to.be.null;
         expect(res).to.have.status(200);
         expect(res).to.be.json;
         expect(res.text.length).to.be.above(0);
@@ -37,6 +38,7 @@ describe('Check all APIs', () => {
       .request(server)
       .get(`/api/v1/testcase/${testcases[0].testNumber}`)
       .end((err, res) => {
+        expect(err).to.be.null;
         expect(res).to.have.status(200);
         expect(res).to.be.json;
         expect(res.text.length).to.be.above(0);
@@ -49,14 +51,15 @@ describe('Check all APIs', () => {
   it('should return all test results of the variant test case on /testcase/{testcaseId}/{variantTestcaseId} GET', (done) => {
     chai
       .request(server)
-      .get(`/api/v1/testcase/1/0`)
+      .get(`/api/v1/testcase/2/0`)
       .end((err, res) => {
+        expect(err).to.be.null;
         expect(res).to.have.status(200);
         expect(res).to.be.json;
         expect(res.text.length).to.be.above(0);
-        expect(res.body.testResults).to.be.a('array');
-        expect(res.body.testResults.length).to.be.above(0);
-        expect(res.body.testResults[0].variationId).to.equal(0);
+        expect(res.body.variation.testResults).to.be.a('array');
+        expect(res.body.variation.testResults.length).to.be.above(0);
+        expect(res.body.variation.testResults[0].variationId).to.equal(0);
         done();
       });
   });
@@ -66,6 +69,7 @@ describe('Check all APIs', () => {
       .request(server)
       .get(`/api/v1/testcase/path/${testcases[0].path}`)
       .end((err, res) => {
+        expect(err).to.be.null;
         expect(res).to.have.status(200);
         expect(res).to.be.json;
         expect(res.text.length).to.be.above(0);
@@ -80,6 +84,7 @@ describe('Check all APIs', () => {
       .post('/api/v1/testcase/search')
       .send(keyword)
       .end((err, res) => {
+        expect(err).to.be.null;
         expect(res).to.have.status(200);
         expect(res).to.be.json;
         expect(res.text.length).to.be.above(0);
@@ -93,6 +98,7 @@ describe('Check all APIs', () => {
       .request(server)
       .get('/api/v1/tag')
       .end((err, res) => {
+        expect(err).to.be.null;
         expect(res).to.have.status(200);
         expect(res).to.be.json;
         expect(res.text.length).to.be.above(0);
@@ -107,6 +113,7 @@ describe('Check all APIs', () => {
       .request(server)
       .get('/api/v1/tag/example')
       .end((err, res) => {
+        expect(err).to.be.null;
         expect(res).to.have.status(200);
         expect(res).to.be.json;
         expect(res.text.length).to.be.above(0);
