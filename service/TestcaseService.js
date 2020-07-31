@@ -142,6 +142,7 @@ const TestcaseService = {
     if (data && data.length > 0) {
       const testresults = await TestResult.find({
         testNumber: testcaseId,
+        variationId: { $exists: false },
       }).sort({ browser: -1, browserVer: -1 });
       detailData = JSON.parse(JSON.stringify(data[0]));
       detailData.testResults = testresults;
@@ -163,7 +164,10 @@ const TestcaseService = {
     ]);
     let detailData = null;
     if (data && data.length > 0) {
-      const testresults = await TestResult.find({ path }).sort({
+      const testresults = await TestResult.find({
+        path,
+        variationId: { $exists: false },
+      }).sort({
         browser: -1,
         browserVer: -1,
       });
