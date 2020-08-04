@@ -58,3 +58,21 @@ module.exports.getTestcaseByPath = async (req, res) => {
     return res.status(400).json(null);
   }
 };
+
+module.exports.getVariantTestcaseById = async (req, res) => {
+  try {
+    const testcaseId = req.swagger.params.testcaseId.value;
+    const variantTestcaseId = req.swagger.params.variantTestcaseId.value;
+    const data = await TestcaseService.getVariantTestcaseById(
+      testcaseId,
+      variantTestcaseId
+    );
+    if (data) {
+      return res.status(200).json(data);
+    }
+    return res.status(404).json(null);
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json(null);
+  }
+};

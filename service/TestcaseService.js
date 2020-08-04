@@ -142,6 +142,7 @@ const TestcaseService = {
     if (data && data.length > 0) {
       const testresults = await TestResult.find({
         testNumber: testcaseId,
+        variationId: { $exists: false },
       }).sort({ browser: -1, browserVer: -1 });
       detailData = JSON.parse(JSON.stringify(data[0]));
       detailData.testResults = testresults;
@@ -163,12 +164,49 @@ const TestcaseService = {
     ]);
     let detailData = null;
     if (data && data.length > 0) {
-      const testresults = await TestResult.find({ path }).sort({
+      const testresults = await TestResult.find({
+        path,
+        variationId: { $exists: false },
+      }).sort({
         browser: -1,
         browserVer: -1,
       });
       detailData = JSON.parse(JSON.stringify(data[0]));
       detailData.testResults = testresults;
+    }
+    return detailData;
+  },
+
+  getVariantTestcaseById: async (testcaseId, variantTestcaseId) => {
+    const data = await Testcase.aggregate([
+      { $match: { testNumber: { $eq: testcaseId } } },
+      {
+        $lookup: {
+          from: 'tags',
+          localField: 'tagNums',
+          foreignField: 'tagNumber',
+          as: 'tags',
+        },
+      },
+    ]);
+    let detailData = null;
+    if (
+      data &&
+      data.length > 0 &&
+      data[0].variations &&
+      data[0].variations.length > 0
+    ) {
+      data[0].variations.forEach((variationItem) => {
+        if (variationItem.id === variantTestcaseId)
+          data[0].variation = variationItem;
+      });
+      const testresults = await TestResult.find({
+        testNumber: testcaseId,
+        variationId: variantTestcaseId,
+      }).sort({ browser: -1, browserVer: -1 });
+      if (!testresults.length) return null;
+      detailData = JSON.parse(JSON.stringify(data[0]));
+      detailData.variation.testResults = testresults;
     }
     return detailData;
   },

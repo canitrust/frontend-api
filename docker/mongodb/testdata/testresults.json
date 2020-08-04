@@ -4662,6 +4662,866 @@
         "date_lasttest": { "$date": "2019-05-28T11:34:59.236Z" }
     },
     {
+        "_id": { "$oid": "5dba8d4fb58a0e27062a8c46" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 37.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:08:28.391Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d50b58a0e27062a8c75" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 38.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:09:21.367Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d50b58a0e27062a8caa" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 39.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:10:18.258Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d50b58a0e27062a8cda" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 40.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:11:16.309Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d50b58a0e27062a8d0c" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 41.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:12:16.529Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d50b58a0e27062a8d31" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 43.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:13:52.204Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d51b58a0e27062a8d62" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 44.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:14:46.911Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d51b58a0e27062a8d82" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 45.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:15:42.799Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d51b58a0e27062a8db2" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 46.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:16:36.338Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d51b58a0e27062a8df2" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 47.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:17:42.113Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d51b58a0e27062a8e12" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 48.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:18:36.096Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d52b58a0e27062a8e42" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 49.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:19:28.257Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d52b58a0e27062a8e7a" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 50.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:20:23.109Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d52b58a0e27062a8ea2" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 51.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:21:19.420Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d52b58a0e27062a8ee2" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 52.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:22:11.656Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d52b58a0e27062a8f01" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 53.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:23:05.994Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d52b58a0e27062a8f42" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 54.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:24:00.425Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d53b58a0e27062a8f73" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 55.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:24:56.119Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d53b58a0e27062a8fa2" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 56.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:25:53.488Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d53b58a0e27062a8fca" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 57.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:26:47.541Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d53b58a0e27062a9002" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 58.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:27:40.505Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d53b58a0e27062a9032" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 59.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:28:43.351Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d54b58a0e27062a905d" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 60.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:29:36.986Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d54b58a0e27062a90d2" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 61.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:30:30.736Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d54b58a0e27062a9101" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 62.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:31:22.651Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d54b58a0e27062a9122" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 63.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:32:15.143Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d54b58a0e27062a9163" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 64.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:33:07.212Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d54b58a0e27062a9192" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 65.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:34:01.478Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d55b58a0e27062a91c2" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 66.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:34:55.394Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d55b58a0e27062a91f2" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 67.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:35:53.454Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d55b58a0e27062a9212" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 68.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:36:46.047Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d55b58a0e27062a9242" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 69.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:37:37.606Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d55b58a0e27062a9252" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 70.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:38:29.897Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d56b58a0e27062a9272" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 71.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:39:22.562Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d56b58a0e27062a92a2" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 72.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:40:14.824Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d56b58a0e27062a92b2" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 73.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:41:20.716Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d56b58a0e27062a92c2" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Chrome",
+        "browserVer": 74.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:42:13.448Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d56b58a0e27062a92f2" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Ie",
+        "browserVer": 11.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:44:00.676Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d57b58a0e27062a9322" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Edge",
+        "browserVer": 15.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:44:54.052Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d57b58a0e27062a9342" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Edge",
+        "browserVer": 16.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:45:50.989Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d57b58a0e27062a9372" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Edge",
+        "browserVer": 17.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:46:48.570Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d57b58a0e27062a93a2" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Edge",
+        "browserVer": 18.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T10:47:43.890Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d57b58a0e27062a93e2" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Firefox",
+        "browserVer": 32.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T10:49:39.588Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d57b58a0e27062a9412" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Firefox",
+        "browserVer": 33.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T10:50:41.287Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d58b58a0e27062a9432" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Firefox",
+        "browserVer": 34.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T10:51:37.280Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d58b58a0e27062a9472" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Firefox",
+        "browserVer": 35.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T10:52:45.617Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d58b58a0e27062a9492" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Firefox",
+        "browserVer": 36.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T10:53:57.749Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d58b58a0e27062a94d2" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Firefox",
+        "browserVer": 37.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T10:54:54.099Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d58b58a0e27062a9502" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Firefox",
+        "browserVer": 38.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T10:55:45.774Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d59b58a0e27062a9522" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Firefox",
+        "browserVer": 39.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T10:56:51.802Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d59b58a0e27062a9562" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Firefox",
+        "browserVer": 40.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T10:57:48.912Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d59b58a0e27062a9582" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Firefox",
+        "browserVer": 41.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T10:58:47.162Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d59b58a0e27062a95b2" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Firefox",
+        "browserVer": 42.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T10:59:46.942Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d59b58a0e27062a95e2" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Firefox",
+        "browserVer": 43.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:00:44.450Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d59b58a0e27062a9612" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Firefox",
+        "browserVer": 44.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:01:47.388Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5ab58a0e27062a9642" },
+        "testNumber": 2,
+        "variationId": 0,
+        "browser": "Firefox",
+        "browserVer": 45.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:02:45.415Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5ab58a0e27062a9682" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 46.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:03:42.858Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5ab58a0e27062a96b2" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 47.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:04:41.014Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5ab58a0e27062a96d2" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 48.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:05:38.114Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5ab58a0e27062a9702" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 49.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:06:32.800Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5bb58a0e27062a9732" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 50.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:07:33.998Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5bb58a0e27062a9762" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 51.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:08:35.689Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5bb58a0e27062a9792" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 52.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:09:31.172Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5bb58a0e27062a97c2" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 53.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:10:33.433Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5bb58a0e27062a97f1" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 54.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:11:34.771Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5cb58a0e27062a9812" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 55.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:12:30.042Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5cb58a0e27062a9842" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 56.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:13:25.334Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5cb58a0e27062a9872" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 57.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:14:23.945Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5cb58a0e27062a98a2" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 58.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:15:18.817Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5cb58a0e27062a98d2" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 59.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:16:14.740Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5cb58a0e27062a9902" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 60.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:17:17.393Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5db58a0e27062a9942" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 61.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:18:26.268Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5db58a0e27062a9963" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 62.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:19:24.312Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5db58a0e27062a99a2" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 63.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:20:19.620Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5db58a0e27062a99d2" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 64.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:21:11.899Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5db58a0e27062a9a12" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 65.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:22:05.546Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5eb58a0e27062a9a32" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 66.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:23:11.834Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5eb58a0e27062a9a72" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Firefox",
+        "browserVer": 67.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:25:10.386Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5eb58a0e27062a9ae2" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Safari",
+        "browserVer": 5.1,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:26:07.405Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5eb58a0e27062a9b12" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Safari",
+        "browserVer": 6.0,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:27:17.884Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5eb58a0e27062a9b42" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Safari",
+        "browserVer": 6.2,
+        "isBeta": false,
+        "result": 0,
+        "date_lasttest": { "$date": "2019-05-28T11:28:15.924Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5eb58a0e27062a9b73" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Safari",
+        "browserVer": 8.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T11:30:33.202Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5fb58a0e27062a9b92" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Safari",
+        "browserVer": 9.1,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T11:31:34.416Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5fb58a0e27062a9bd2" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Safari",
+        "browserVer": 10.1,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T11:32:39.750Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5fb58a0e27062a9bf3" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Safari",
+        "browserVer": 11.1,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T11:33:35.185Z" }
+    },
+    {
+        "_id": { "$oid": "5dba8d5fb58a0e27062a9c22" },
+        "testNumber": 2,
+        "variationId": 1,
+        "browser": "Safari",
+        "browserVer": 12.0,
+        "isBeta": false,
+        "result": 2,
+        "date_lasttest": { "$date": "2019-05-28T11:34:59.236Z" }
+    },
+    {
         "_id": { "$oid": "5dba8d5fb58a0e27062a9c52" },
         "testNumber": 13,
         "browser": "Chrome",
