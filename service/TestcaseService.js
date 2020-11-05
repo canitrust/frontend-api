@@ -126,33 +126,23 @@ const TestcaseService = {
     }
   },
 
-  getTestcaseById: async (testcaseId) => {
-    const data = await Testcase.aggregate([
-      { $match: { testNumber: { $eq: testcaseId } } },
-      {
-        $lookup: {
-          from: 'tags',
-          localField: 'tagNums',
-          foreignField: 'tagNumber',
-          as: 'tags',
-        },
-      },
-    ]);
-    let detailData = null;
-    if (data && data.length > 0) {
-      const testresults = await TestResult.find({
-        testNumber: testcaseId,
-        variationId: { $exists: false },
-      }).sort({ browser: -1, browserVer: -1 });
-      detailData = JSON.parse(JSON.stringify(data[0]));
-      detailData.testResults = testresults;
+  getTestcaseByIdOrPath: async (param, byId) => {
+    const testResultSort = { browser: -1, browserVer: -1 };
+    const query = {};
+    let testcaseMatch = {};
+    if (byId) {
+      // getTestcaseById
+      const testcaseId = param;
+      testcaseMatch = { testNumber: { $eq: testcaseId } };
+      query.testNumber = testcaseId;
+    } else {
+      // getTestcaseByPath
+      const testcasePath = param;
+      testcaseMatch = { path: findByCaseInsensitive(testcasePath) };
+      query.path = testcasePath;
     }
-    return detailData;
-  },
-
-  getTestcaseByPath: async (path) => {
     const data = await Testcase.aggregate([
-      { $match: { path: findByCaseInsensitive(path) } },
+      { $match: testcaseMatch },
       {
         $lookup: {
           from: 'tags',
@@ -164,15 +154,22 @@ const TestcaseService = {
     ]);
     let detailData = null;
     if (data && data.length > 0) {
-      const testresults = await TestResult.find({
-        path,
-        variationId: { $exists: false },
-      }).sort({
-        browser: -1,
-        browserVer: -1,
-      });
       detailData = JSON.parse(JSON.stringify(data[0]));
+      // Return first variation's testresults if any variation testcase exists
+      if (detailData.variations && detailData.variations.length !== 0)
+        query.variationId = detailData.variations[0].id;
+      else query.variationId = { $exists: false };
+
+      const testresults = await TestResult.find({
+        real_mobile: { $exists: false },
+        ...query,
+      }).sort(testResultSort);
+      const mobileResults = await TestResult.find({
+        real_mobile: { $exists: true },
+        ...query,
+      }).sort(testResultSort);
       detailData.testResults = testresults;
+      detailData.mobileResults = mobileResults;
     }
     return detailData;
   },
