@@ -57,9 +57,9 @@ describe('Check all APIs', () => {
         expect(res).to.have.status(200);
         expect(res).to.be.json;
         expect(res.text.length).to.be.above(0);
-        expect(res.body.variation.testResults).to.be.a('array');
-        expect(res.body.variation.testResults.length).to.be.above(0);
-        expect(res.body.variation.testResults[0].variationId).to.equal(0);
+        expect(res.body.testResults).to.be.a('array');
+        expect(res.body.testResults.length).to.be.above(0);
+        expect(res.body.testResults[0].variationId).to.equal(0);
         done();
       });
   });
