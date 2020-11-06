@@ -126,9 +126,12 @@ const TestcaseService = {
     }
   },
 
-  getTestcaseById: async (testcaseId) => {
+  getTestcaseByIdOrPath: async (param, byId) => {
+    const testcaseMatch = byId
+      ? { testNumber: { $eq: param } }
+      : { path: findByCaseInsensitive(param) };
     const data = await Testcase.aggregate([
-      { $match: { testNumber: { $eq: testcaseId } } },
+      { $match: testcaseMatch },
       {
         $lookup: {
           from: 'tags',
@@ -140,39 +143,14 @@ const TestcaseService = {
     ]);
     let detailData = null;
     if (data && data.length > 0) {
-      const testresults = await TestResult.find({
-        testNumber: testcaseId,
-        variationId: { $exists: false },
-      }).sort({ browser: -1, browserVer: -1 });
       detailData = JSON.parse(JSON.stringify(data[0]));
-      detailData.testResults = testresults;
-    }
-    return detailData;
-  },
+      const query = { testNumber: detailData.testNumber };
+      // Return first variation's testresults if any variation testcase exists
+      if (detailData.variations && detailData.variations.length !== 0)
+        query.variationId = detailData.variations[0].id;
+      else query.variationId = { $exists: false };
 
-  getTestcaseByPath: async (path) => {
-    const data = await Testcase.aggregate([
-      { $match: { path: findByCaseInsensitive(path) } },
-      {
-        $lookup: {
-          from: 'tags',
-          localField: 'tagNums',
-          foreignField: 'tagNumber',
-          as: 'tags',
-        },
-      },
-    ]);
-    let detailData = null;
-    if (data && data.length > 0) {
-      const testresults = await TestResult.find({
-        path,
-        variationId: { $exists: false },
-      }).sort({
-        browser: -1,
-        browserVer: -1,
-      });
-      detailData = JSON.parse(JSON.stringify(data[0]));
-      detailData.testResults = testresults;
+      detailData.testResults = await TestResult.find(query);
     }
     return detailData;
   },
@@ -188,25 +166,29 @@ const TestcaseService = {
           as: 'tags',
         },
       },
+      {
+        $lookup: {
+          from: 'testresults',
+          let: { testNumber: '$testNumber' },
+          pipeline: [
+            {
+              $match: {
+                $expr: {
+                  $and: [
+                    { $eq: ['$testNumber', '$$testNumber'] },
+                    { $eq: ['$variationId', variantTestcaseId] },
+                  ],
+                },
+              },
+            },
+          ],
+          as: 'testResults',
+        },
+      },
     ]);
     let detailData = null;
-    if (
-      data &&
-      data.length > 0 &&
-      data[0].variations &&
-      data[0].variations.length > 0
-    ) {
-      data[0].variations.forEach((variationItem) => {
-        if (variationItem.id === variantTestcaseId)
-          data[0].variation = variationItem;
-      });
-      const testresults = await TestResult.find({
-        testNumber: testcaseId,
-        variationId: variantTestcaseId,
-      }).sort({ browser: -1, browserVer: -1 });
-      if (!testresults.length) return null;
+    if (data && data.length > 0) {
       detailData = JSON.parse(JSON.stringify(data[0]));
-      detailData.variation.testResults = testresults;
     }
     return detailData;
   },
