@@ -3,8 +3,7 @@ node('Build') {
     stage('Checkout') {
         def gitBranch = 'develop'
         def gitUrl = env.CIT_GIT_FRONTEND_API_URL
-        def gitCredentialID = 'e7acb748-22b5-47e2-b5c8-f740048baac1'
-        git branch: gitBranch, credentialsId: gitCredentialID, url: gitUrl
+        git branch: gitBranch, url: gitUrl
         echo "Checking out $repo form $gitUrl, branch $gitBranch"
     }
 

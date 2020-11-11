@@ -49,6 +49,11 @@ const TestcaseService = {
     }
   },
 
+  getAllPageTestcase: async () => {
+    const data = await Testcase.find();
+    return data;
+  },
+
   searchTestcase: async (name) => {
     const findTags = await TagService.getTagByName(name);
     let data = [];
@@ -121,7 +126,36 @@ const TestcaseService = {
     }
   },
 
-  getTestcaseById: async (testcaseId) => {
+  getTestcaseByIdOrPath: async (param, byId) => {
+    const testcaseMatch = byId
+      ? { testNumber: { $eq: param } }
+      : { path: findByCaseInsensitive(param) };
+    const data = await Testcase.aggregate([
+      { $match: testcaseMatch },
+      {
+        $lookup: {
+          from: 'tags',
+          localField: 'tagNums',
+          foreignField: 'tagNumber',
+          as: 'tags',
+        },
+      },
+    ]);
+    let detailData = null;
+    if (data && data.length > 0) {
+      detailData = JSON.parse(JSON.stringify(data[0]));
+      const query = { testNumber: detailData.testNumber };
+      // Return first variation's testresults if any variation testcase exists
+      if (detailData.variations && detailData.variations.length !== 0)
+        query.variationId = detailData.variations[0].id;
+      else query.variationId = { $exists: false };
+
+      detailData.testResults = await TestResult.find(query);
+    }
+    return detailData;
+  },
+
+  getVariantTestcaseById: async (testcaseId, variantTestcaseId) => {
     const data = await Testcase.aggregate([
       { $match: { testNumber: { $eq: testcaseId } } },
       {
@@ -132,38 +166,29 @@ const TestcaseService = {
           as: 'tags',
         },
       },
-    ]);
-    let detailData = null;
-    if (data && data.length > 0) {
-      const testresults = await TestResult.find({
-        testNumber: testcaseId,
-      }).sort({ browser: -1, browserVer: -1 });
-      detailData = JSON.parse(JSON.stringify(data[0]));
-      detailData.testResults = testresults;
-    }
-    return detailData;
-  },
-
-  getTestcaseByPath: async (path) => {
-    const data = await Testcase.aggregate([
-      { $match: { path: findByCaseInsensitive(path) } },
       {
         $lookup: {
-          from: 'tags',
-          localField: 'tagNums',
-          foreignField: 'tagNumber',
-          as: 'tags',
+          from: 'testresults',
+          let: { testNumber: '$testNumber' },
+          pipeline: [
+            {
+              $match: {
+                $expr: {
+                  $and: [
+                    { $eq: ['$testNumber', '$$testNumber'] },
+                    { $eq: ['$variationId', variantTestcaseId] },
+                  ],
+                },
+              },
+            },
+          ],
+          as: 'testResults',
         },
       },
     ]);
     let detailData = null;
     if (data && data.length > 0) {
-      const testresults = await TestResult.find({ path }).sort({
-        browser: -1,
-        browserVer: -1,
-      });
       detailData = JSON.parse(JSON.stringify(data[0]));
-      detailData.testResults = testresults;
     }
     return detailData;
   },

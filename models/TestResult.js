@@ -12,6 +12,7 @@ const TestResultSchema = new mongoose.Schema(
     browserVer: { type: Number },
     result: { type: Number, default: 1 },
     date_lasttest: { type: Date },
+    variationId: { type: Number },
   },
   { timestamps: true }
 );

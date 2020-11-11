@@ -34,7 +34,7 @@ module.exports.searchTestcase = async (req, res) => {
 module.exports.getTestcaseById = async (req, res) => {
   try {
     const testcaseId = req.swagger.params.testcaseId.value;
-    const data = await TestcaseService.getTestcaseById(testcaseId);
+    const data = await TestcaseService.getTestcaseByIdOrPath(testcaseId, true);
     if (data) {
       return res.status(200).json(data);
     }
@@ -48,7 +48,25 @@ module.exports.getTestcaseById = async (req, res) => {
 module.exports.getTestcaseByPath = async (req, res) => {
   try {
     const path = req.swagger.params.path.value;
-    const data = await TestcaseService.getTestcaseByPath(path);
+    const data = await TestcaseService.getTestcaseByIdOrPath(path, false);
+    if (data) {
+      return res.status(200).json(data);
+    }
+    return res.status(404).json(null);
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json(null);
+  }
+};
+
+module.exports.getVariantTestcaseById = async (req, res) => {
+  try {
+    const testcaseId = req.swagger.params.testcaseId.value;
+    const variantTestcaseId = req.swagger.params.variantTestcaseId.value;
+    const data = await TestcaseService.getVariantTestcaseById(
+      testcaseId,
+      variantTestcaseId
+    );
     if (data) {
       return res.status(200).json(data);
     }
